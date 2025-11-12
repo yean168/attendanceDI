@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>របាយការណ៍អ្នកឈប់ឥច្បាប់</title>
+    <link href="https://fonts.googleapis.com/css2?family=Khmer+OS+Siemreap:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🧾 របាយការណ៍ប្រចាំខែ (អ្នកឈប់ឥច្បាប់)</h1>
+    </header>
+
+    <main>
+        <div class="controls-container">
+            <button id="addNewBtn" class="btn btn-primary">➕ បញ្ចូលទិន្នន័យថ្មី</button>
+            <div class="filter-group">
+                <h3>🔍 ត្រងទិន្នន័យ</h3>
+                <div class="date-filters">
+                    <button id="filterToday" class="btn">ថ្ងៃនេះ</button>
+                    <button id="filterWeek" class="btn">សប្តាហ៍នេះ</button>
+                </div>
+                <div class="date-range">
+                    <label for="startDate">ពីថ្ងៃ៖</label>
+                    <input type="date" id="startDate" class="date-input">
+                    <label for="endDate">ដល់ថ្ងៃ៖</label>
+                    <input type="date" id="endDate" class="date-input">
+                    <button id="filterRange" class="btn btn-secondary">ស្វែងរក</button>
+                    <button id="clearFilter" class="btn btn-danger">សម្អាត</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="loader-container" id="loader">
+            <div class="loader"></div>
+            <p>កំពុងទាញយកទិន្នន័យ...</p>
+        </div>
+
+        <div class="table-container">
+            <table id="reportTable">
+                <thead>
+                    <tr>
+                        <th>កាលបរិច្ឆេទ</th>
+                        <th>អត្តលេខ</th>
+                        <th>ឈ្មោះ</th>
+                        <th>រូបថត</th>
+                        <th>ភេទ</th>
+                        <th>ក្រុម</th>
+                        <th>ផ្នែកការងារ</th>
+                        <th>ថ្នាក់</th>
+                        <th>ចំនួនឈប់</th>
+                        <th>ផ្សេងៗ</th>
+                        <th>សកម្មភាព</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div id="formModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2 id="modalTitle">បញ្ចូលទិន្នន័យថ្មី</h2>
+            <form id="reportForm">
+                <input type="hidden" id="reportId" />
+                
+                <div class="form-group">
+                    <label for="employeeSelect">ជ្រើសរើសបុគ្គលិក (វាយឈ្មោះ ឬអត្តលេខ):</label>
+                    <input list="employeeDatalist" id="employeeSelect" class="form-input" placeholder="-- ស្វែងរកបុគ្គលិក --" required>
+                    <datalist id="employeeDatalist">
+                        </datalist>
+                </div>
+
+                <div class="employee-preview" id="employeePreview" style="display: none;">
+                    <img id="previewPhoto" src="" alt="រូបថត">
+                    <div class="preview-info">
+                        <p><strong>អត្តលេខ:</strong> <span id="previewId"></span></p>
+                        <p><strong>ភេទ:</strong> <span id="previewGender"></span></p>
+                        <p><strong>ក្រុម:</strong> <span id="previewGroup"></span></p>
+                        <p><strong>ផ្នែក:</strong> <span id="previewDept"></span></p>
+                        <p><strong>ថ្នាក់:</strong> <span id="previewRank"></span></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="absenceCount">ចំនួននៃការឈប់:</label>
+                    <input type="number" id="absenceCount" class="form-input" min="0" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">ផ្សេងៗ (បញ្ជាក់មូលហេតុ):</label>
+                    <textarea id="notes" class="form-input" rows="3" placeholder="សរសេរបញ្ហាជាក់ស្ដែង..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="saveBtn">រក្សាទុក</button>
+                    <div class="loader-small" id="modalLoader" style="display: none;"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
