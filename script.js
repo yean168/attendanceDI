@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------
 // 🔥🔥🔥 បញ្ចូល WEB APP URL របស់អ្នកនៅទីនេះ 🔥🔥🔥
 // -----------------------------------------------------------------
-const GAS_WEB_APP_URL = "YOUR_WEB_APP_URL_HERE"; 
+const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwPk0Lb-e1PtXuE_TSNC9Q5Lound_30AnJnwc5yZ0l8V85wLj7_Rrd4td_g24OjxJHB2w/exec"; 
 // ឧទាហរណ៍: "https://script.google.com/macros/s/AKfycb.../exec"
 // -----------------------------------------------------------------
 
@@ -40,7 +40,7 @@ const endDateInput = document.getElementById('endDate');
 
 // --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
-    if (GAS_WEB_APP_URL === "YOUR_WEB_APP_URL_HERE") {
+    if (GAS_WEB_APP_URL === "https://script.google.com/macros/s/AKfycbwPk0Lb-e1PtXuE_TSNC9Q5Lound_30AnJnwc5yZ0l8V85wLj7_Rrd4td_g24OjxJHB2w/exec") {
         alert("សូមកែប្រែ 'YOUR_WEB_APP_URL_HERE' នៅក្នុង file script.js ជាមួយ Web App URL របស់អ្នកជាមុនសិន!");
         loader.style.display = 'none';
         return;
